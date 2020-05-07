@@ -5,7 +5,8 @@ namespace QualityTest
     public class Tests
     {
         //Object Creation
-        readonly Length lengthConversion = new Length();
+        readonly Length length = new Length();
+        readonly Volume volume = new Volume();
 
         [SetUp]
         public void Setup()
@@ -138,8 +139,8 @@ namespace QualityTest
         [Test]
         public void CheckGivenZeroFeetAndZeroInchAreEqual()
         {
-            double zeroFeet = lengthConversion.LengthConversion("FeetToInch",0.0);
-            double zeroInch = lengthConversion.LengthConversion("InchToFeet",0.0);
+            double zeroFeet = length.LengthConversion("FeetToInch",0.0);
+            double zeroInch = length.LengthConversion("InchToFeet",0.0);
             Assert.AreEqual(zeroFeet, zeroInch);
         }
 
@@ -149,8 +150,8 @@ namespace QualityTest
         [Test]
         public void CheckGivenOneFeetIsNotEqualToOneInch()
         {
-            double oneFeet = lengthConversion.LengthConversion("FeetToInch",1.0);
-            double oneInch = lengthConversion.LengthConversion("InchToFee", 1.0);
+            double oneFeet = length.LengthConversion("FeetToInch",1.0);
+            double oneInch = length.LengthConversion("InchToFee", 1.0);
             Assert.AreNotEqual(oneFeet, oneInch);
         }
 
@@ -160,8 +161,8 @@ namespace QualityTest
         [Test]
         public void CheckGivenOneInchIsNotEqualToOneFeet()
         {
-            double oneInch = lengthConversion.LengthConversion("InchToFeet",1.0);
-            double oneFeet = lengthConversion.LengthConversion("FeetToInch", 1.0);
+            double oneInch = length.LengthConversion("InchToFeet",1.0);
+            double oneFeet = length.LengthConversion("FeetToInch", 1.0);
             Assert.AreNotEqual(oneInch, oneFeet);
         }
 
@@ -171,7 +172,7 @@ namespace QualityTest
         [Test]
         public void CheckGivenOneFeetIsEqualToTwelveInch()
         {
-            double oneFeet = lengthConversion.LengthConversion("FeetToInch", 1.0);
+            double oneFeet = length.LengthConversion("FeetToInch", 1.0);
             double twelveInch = 12.0;
             Assert.AreEqual(oneFeet,twelveInch);
         }
@@ -183,7 +184,7 @@ namespace QualityTest
         public void CheckGivenTwelveInchIsEqualToOneFeet()
         {
             double oneFeet = 1.0;
-            double twelveInch = lengthConversion.LengthConversion("InchToFeet",12.0);
+            double twelveInch = length.LengthConversion("InchToFeet",12.0);
             Assert.AreEqual(oneFeet, twelveInch);
         }
 
@@ -193,7 +194,7 @@ namespace QualityTest
         [Test]
         public void CheckGivenThreeFeetIsEqualToOneYard()
         {
-            double threeFeet = lengthConversion.LengthConversion("FeetToYard",3.0);
+            double threeFeet = length.LengthConversion("FeetToYard",3.0);
             double oneYard = 1.0;
             Assert.AreEqual(oneYard,threeFeet);
         }
@@ -205,7 +206,7 @@ namespace QualityTest
         public void CheckGivenOneFeetIsNotEqualToOneYard()
         {
             double oneFeet = 1.0;
-            double oneYard = lengthConversion.LengthConversion("YardToFeet", 1.0);
+            double oneYard = length.LengthConversion("YardToFeet", 1.0);
             Assert.AreNotEqual(oneFeet, oneYard);
         }
 
@@ -216,7 +217,7 @@ namespace QualityTest
         public void CheckGivenOneInchIsNotEqualToOneYard()
         {
             double oneInch = 1.0;
-            double oneYard = lengthConversion.LengthConversion("InchToYard", 1.0);
+            double oneYard = length.LengthConversion("InchToYard", 1.0);
             Assert.AreNotEqual(oneInch, oneYard);
         }
 
@@ -227,7 +228,7 @@ namespace QualityTest
         public void CheckGivenOneYardIsEqualToThirtySixInch()
         {
             double thirtySixInch = 36.0;
-            double oneYard = lengthConversion.LengthConversion("YardToInch", 1.0);
+            double oneYard = length.LengthConversion("YardToInch", 1.0);
             Assert.AreEqual(thirtySixInch, oneYard);
         }
 
@@ -237,7 +238,7 @@ namespace QualityTest
         [Test]
         public void CheckGiventhirtySixInchIsEqualToOneYard()
         {
-            double thirtySixInch = lengthConversion.LengthConversion("InchToYard", 36.0);
+            double thirtySixInch = length.LengthConversion("InchToYard", 36.0);
             double oneYard = 1.0;
             Assert.AreEqual(oneYard,thirtySixInch);
         }
@@ -248,7 +249,7 @@ namespace QualityTest
         [Test]
         public void CheckGivenOneYardIsEqualToThreeFeet()
         {
-            double oneYard = lengthConversion.LengthConversion("YardToFeet", 1.0);
+            double oneYard = length.LengthConversion("YardToFeet", 1.0);
             double threeFeet = 3.0;
             Assert.AreEqual(threeFeet, oneYard);
         }
@@ -259,7 +260,7 @@ namespace QualityTest
         [Test]
         public void CheckGivenTwoInchIsEqualToFiveCentimeter()
         {
-            double twoInch = lengthConversion.LengthConversion("InchToCentimeter", 2.0);
+            double twoInch = length.LengthConversion("InchToCentimeter", 2.0);
             double fiveCentimeter = 5.0;
             Assert.AreEqual(fiveCentimeter, twoInch);
         }
@@ -270,7 +271,7 @@ namespace QualityTest
         [Test]
         public void CheckGivenTwoLengthsInInchForAdditionReturnInInch()
         {
-            double twoInch = lengthConversion.AddTwoLenghtsInInch(Length.Unit.INCH,2,Length.Unit.INCH,2);
+            double twoInch = length.AddTwoLenghtsInInch(Length.Unit.INCH,2,Length.Unit.INCH,2);
             double addTwoInch = 4.0;
             Assert.AreEqual(twoInch, addTwoInch);
         }
@@ -281,7 +282,7 @@ namespace QualityTest
         [Test]
         public void CheckGivenTwoLengthsOneInFeetAndSecondInInchReturnInInch()
         {
-            double oneFeetOneInch = lengthConversion.AddTwoLenghtsInInch(Length.Unit.FEET, 1, Length.Unit.INCH, 2);
+            double oneFeetOneInch = length.AddTwoLenghtsInInch(Length.Unit.FEET, 1, Length.Unit.INCH, 2);
             double addTwoInch = 14.0;
             Assert.AreEqual(addTwoInch, oneFeetOneInch);
         }
@@ -292,7 +293,7 @@ namespace QualityTest
         [Test]
         public void CheckGivenTwoLengthsInFeetReturnInInch()
         {
-            double addTwoFeet = lengthConversion.AddTwoLenghtsInInch(Length.Unit.FEET, 1, Length.Unit.FEET, 1);
+            double addTwoFeet = length.AddTwoLenghtsInInch(Length.Unit.FEET, 1, Length.Unit.FEET, 1);
             double addTwoInch = 24.0;
             Assert.AreEqual(addTwoInch, addTwoFeet);
         }
@@ -303,9 +304,20 @@ namespace QualityTest
         [Test]
         public void CheckGivenTwoLengthsOneInInchSecondInCentimeterReturnInInch()
         {
-            double oneInchOneCentimeter = lengthConversion.AddTwoLenghtsInInch(Length.Unit.INCH, 2, Length.Unit.CENTIMETER, 2.5);
+            double oneInchOneCentimeter = length.AddTwoLenghtsInInch(Length.Unit.INCH, 2, Length.Unit.CENTIMETER, 2.5);
             double addTwoInch = 3.0;
             Assert.AreEqual(addTwoInch, oneInchOneCentimeter);
+        }
+
+        /// <Test 5.1>
+        /// Checking 1 gallon is equal to 3.78 litres
+        /// </Test5.1>
+        [Test]
+        public void CheckGivenOneGallonToLitre()
+        {
+            double oneGallon = volume.volumeConversion("GallonToLitre",1.0);
+            double oneGallonToLitre = 3.78;
+            Assert.AreEqual(oneGallonToLitre, oneGallon);
         }
     }
 }
