@@ -252,5 +252,16 @@ namespace QualityTest
             double threeFeet = 3.0;
             Assert.AreEqual(threeFeet, oneYard);
         }
+
+        /// <Test 3.1>
+        /// Checking 2 Inch is equal to 5 Centimetre
+        /// </Test3.1>
+        [Test]
+        public void CheckGivenTwoInchIsEqualToFiveCentimeter()
+        {
+            double twoInch = lengthConversion.LengthConversion("InchToCentimeter", 2.0);
+            double fiveCentimeter = 5.0;
+            Assert.AreEqual(fiveCentimeter, twoInch);
+        }
     }
 }
