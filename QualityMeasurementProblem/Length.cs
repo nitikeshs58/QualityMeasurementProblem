@@ -76,7 +76,7 @@ namespace QualityMeasurementProblem
                     double inchToCentimeter = givenValue * 2.5;
                     return inchToCentimeter;
                 case "CentimeterToInch":
-                    double centimeterToInch=givenValue/2.5;
+                    double centimeterToInch = givenValue / 2.5;
                     return centimeterToInch;
                 default:
                     Console.WriteLine("Invalid Conversion");
@@ -102,11 +102,11 @@ namespace QualityMeasurementProblem
 
             if (unitTwo == Unit.FEET)
             {
-                secondValueInInch = LengthConversion("FeetToInch", valueOne);
+                secondValueInInch = LengthConversion("FeetToInch", valueTwo);
             }
             else if (unitTwo == Unit.CENTIMETER)
             {
-                secondValueInInch = LengthConversion("CentimeterToInch", valueOne);
+                secondValueInInch = LengthConversion("CentimeterToInch", valueTwo);
             }
             return firstValueInInch+ secondValueInInch;
         }
