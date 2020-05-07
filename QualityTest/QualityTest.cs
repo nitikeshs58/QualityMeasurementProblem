@@ -285,5 +285,16 @@ namespace QualityTest
             double addTwoInch = 14.0;
             Assert.AreEqual(addTwoInch, oneFeetOneInch);
         }
+
+        /// <Test 4.3>
+        /// Checking 1 Feet addition to 1 Feet Equal to 24 inch
+        /// </Test4.3>
+        [Test]
+        public void CheckGivenTwoLengthsInFeetReturnInInch()
+        {
+            double addTwoFeet = lengthConversion.AddTwoLenghtsInInch(Length.Unit.FEET, 1, Length.Unit.FEET, 1);
+            double addTwoInch = 24.0;
+            Assert.AreEqual(addTwoInch, addTwoFeet);
+        }
     }
 }
