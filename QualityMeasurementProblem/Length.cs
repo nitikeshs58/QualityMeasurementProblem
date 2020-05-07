@@ -39,20 +39,44 @@ namespace QualityMeasurementProblem
                 return false;
             if (obj == this)
                 return true;
-            return (this.unit == ((Length)obj).unit) && (this.value == ((Length)obj).value) ||
-                 (this.unit.Equals(Unit.FEET) && ((Length)obj).unit.Equals(Unit.INCH) &&
-                this.value == 0 && ((Length)obj).value == 0);
+            return (this.unit == ((Length)obj).unit) && (this.value == ((Length)obj).value);
         }
 
-        public double FeetToInch(double valueInFeet)
+        /// <summary>
+        /// By using Switch case we are checking type of converson
+        /// and doing calculation
+        /// </summary>
+        /// <param name="conversion"></param>
+        /// <param name="givenValue"></param>
+        /// <returns></returns>
+        public double LengthConversion(string conversion,double givenValue)
         {
-            return valueInFeet * 12;
+            switch (conversion)
+            {
+                case "FeetToInch":
+                    double feetToInch= givenValue * 12;
+                    return feetToInch;
+                case "InchToFeet":
+                    double inchToFeet = givenValue / 12;
+                    return inchToFeet;
+                case "FeetToYard":
+                    double feetToyard = givenValue / 3;
+                    return feetToyard;
+                case "YardToFeet":
+                    double yardToFeet = givenValue * 3;
+                    return yardToFeet;
+                case "InchToYard":
+                    double inchToYard = givenValue / 36;
+                    return inchToYard;
+                case "YardToInch":
+                    double yardToInch = givenValue * 36;
+                    return yardToInch;
+                default:
+                    Console.WriteLine("Invalid Conversion");
+                    return 0;
+            }
         }
 
-        public double InchToFeet(double valueInInch)
-        {
-            return valueInInch / 12;
-        }
         /// <summary>
         /// Overriding GetHashCode Method.
         /// </summary>

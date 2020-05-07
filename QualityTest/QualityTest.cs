@@ -4,7 +4,8 @@ namespace QualityTest
 {
     public class Tests
     {
-        Length lengthConversion = new Length();
+        //Object Creation
+        readonly Length lengthConversion = new Length();
 
         [SetUp]
         public void Setup()
@@ -137,9 +138,9 @@ namespace QualityTest
         [Test]
         public void CheckGivenZeroFeetAndZeroInchAreEqual()
         {
-            Length firstFeet = new Length(Length.Unit.FEET, 0.0);
-            Length secondFeet = new Length(Length.Unit.INCH, 0.0);
-            Assert.AreEqual(firstFeet, secondFeet);
+            double zeroFeet = lengthConversion.LengthConversion("FeetToInch",0.0);
+            double zeroInch = lengthConversion.LengthConversion("InchToFeet",0.0);
+            Assert.AreEqual(zeroFeet, zeroInch);
         }
 
         /// <Test 1.12>
@@ -148,8 +149,8 @@ namespace QualityTest
         [Test]
         public void CheckGivenOneFeetIsNotEqualToOneInch()
         {
-            double oneFeet = lengthConversion.FeetToInch(1.0);
-            double oneInch = lengthConversion.InchToFeet(1.0);
+            double oneFeet = lengthConversion.LengthConversion("FeetToInch",1.0);
+            double oneInch = lengthConversion.LengthConversion("InchToFee", 1.0);
             Assert.AreNotEqual(oneFeet, oneInch);
         }
 
@@ -159,8 +160,8 @@ namespace QualityTest
         [Test]
         public void CheckGivenOneInchIsNotEqualToOneFeet()
         {
-            double oneInch = lengthConversion.InchToFeet(1.0);
-            double oneFeet = lengthConversion.FeetToInch(1.0);
+            double oneInch = lengthConversion.LengthConversion("InchToFeet",1.0);
+            double oneFeet = lengthConversion.LengthConversion("FeetToInch", 1.0);
             Assert.AreNotEqual(oneInch, oneFeet);
         }
 
@@ -170,7 +171,7 @@ namespace QualityTest
         [Test]
         public void CheckGivenOneFeetIsEqualToTwelveInch()
         {
-            double oneFeet = lengthConversion.FeetToInch(1.0);
+            double oneFeet = lengthConversion.LengthConversion("FeetToInch", 1.0);
             double twelveInch = 12.0;
             Assert.AreEqual(oneFeet,twelveInch);
         }
@@ -182,8 +183,19 @@ namespace QualityTest
         public void CheckGivenTwelveInchIsEqualToOneFeet()
         {
             double oneFeet = 1.0;
-            double twelveInch = lengthConversion.InchToFeet(12.0);
+            double twelveInch = lengthConversion.LengthConversion("InchToFeet",12.0);
             Assert.AreEqual(oneFeet, twelveInch);
+        }
+
+        /// <Test 2.1>
+        /// Checking 3 Feet is equal to 1 Yard
+        /// </Test2.1>
+        [Test]
+        public void CheckGivenThreeFeetIsEqualToOneYard()
+        {
+            double threeFeet = lengthConversion.LengthConversion("FeetToYard",3.0);
+            double oneYard = 1.0;
+            Assert.AreEqual(oneYard,threeFeet);
         }
     }
 }
