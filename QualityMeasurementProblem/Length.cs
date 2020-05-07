@@ -13,7 +13,8 @@ namespace QualityMeasurementProblem
         public enum Unit
         {
             FEET,
-            INCH
+            INCH,
+            CENTIMETER
         };
 
         // Default Constructor
@@ -74,12 +75,41 @@ namespace QualityMeasurementProblem
                 case "InchToCentimeter":
                     double inchToCentimeter = givenValue * 2.5;
                     return inchToCentimeter;
+                case "CentimeterToInch":
+                    double centimeterToInch=givenValue/2.5;
+                    return centimeterToInch;
                 default:
                     Console.WriteLine("Invalid Conversion");
                     return 0;
             }
         }
 
+        public double AddTwoLenghtsInInch(Unit unitOne,double valueOne,Unit unitTwo,double valueTwo)
+        {
+            double firstValueInInch = valueOne;
+            double secondValueInInch = valueTwo;
+            //
+            if (unitOne == Unit.INCH && unitTwo == Unit.INCH)
+                return firstValueInInch + secondValueInInch;
+            if (unitOne == Unit.FEET) 
+            {
+                firstValueInInch = LengthConversion("FeetToInch", valueOne);
+            }
+            else if(unitOne==Unit.CENTIMETER)
+            {
+                firstValueInInch = LengthConversion("CentimeterToInch", valueOne);
+            }
+
+            if (unitTwo == Unit.FEET)
+            {
+                secondValueInInch = LengthConversion("FeetToInch", valueOne);
+            }
+            else if (unitTwo == Unit.CENTIMETER)
+            {
+                secondValueInInch = LengthConversion("CentimeterToInch", valueOne);
+            }
+            return firstValueInInch+ secondValueInInch;
+        }
         /// <summary>
         /// Overriding GetHashCode Method.
         /// </summary>
