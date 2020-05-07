@@ -241,5 +241,16 @@ namespace QualityTest
             double oneYard = 1.0;
             Assert.AreEqual(oneYard,thirtySixInch);
         }
+
+        /// <Test 2.6>
+        /// Checking 1 Yard is equal to 3 Feet
+        /// </Test2.6>
+        [Test]
+        public void CheckGivenOneYardIsEqualToThreeFeet()
+        {
+            double oneYard = lengthConversion.LengthConversion("YardToFeet", 1.0);
+            double threeFeet = 3.0;
+            Assert.AreEqual(threeFeet, oneYard);
+        }
     }
 }
