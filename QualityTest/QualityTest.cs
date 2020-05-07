@@ -230,5 +230,16 @@ namespace QualityTest
             double oneYard = lengthConversion.LengthConversion("YardToInch", 1.0);
             Assert.AreEqual(thirtySixInch, oneYard);
         }
+
+        /// <Test 2.5>
+        /// Checking 36 Inch is equal to 1 Yard
+        /// </Test2.5>
+        [Test]
+        public void CheckGiventhirtySixInchIsEqualToOneYard()
+        {
+            double thirtySixInch = lengthConversion.LengthConversion("InchToYard", 36.0);
+            double oneYard = 1.0;
+            Assert.AreEqual(oneYard,thirtySixInch);
+        }
     }
 }
