@@ -208,5 +208,27 @@ namespace QualityTest
             double oneYard = lengthConversion.LengthConversion("YardToFeet", 1.0);
             Assert.AreNotEqual(oneFeet, oneYard);
         }
+
+        /// <Test 2.3>
+        /// Checking 1 Inch is not equal to 1 Yard
+        /// </Test2.3>
+        [Test]
+        public void CheckGivenOneInchIsNotEqualToOneYard()
+        {
+            double oneInch = 1.0;
+            double oneYard = lengthConversion.LengthConversion("InchToYard", 1.0);
+            Assert.AreNotEqual(oneInch, oneYard);
+        }
+
+        /// <Test 2.4>
+        /// Checking 1 Yard is equal to 36 Inch
+        /// </Test2.4>
+        [Test]
+        public void CheckGivenOneYardIsEqualToThirtySixInch()
+        {
+            double thirtySixInch = 36.0;
+            double oneYard = lengthConversion.LengthConversion("YardToInch", 1.0);
+            Assert.AreEqual(thirtySixInch, oneYard);
+        }
     }
 }
