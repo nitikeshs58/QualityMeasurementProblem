@@ -44,6 +44,15 @@ namespace QualityMeasurementProblem
                 this.value == 0 && ((Length)obj).value == 0);
         }
 
+        public double FeetToInch(double valueInFeet)
+        {
+            return valueInFeet * 12;
+        }
+
+        public double InchToFeet(double valueInInch)
+        {
+            return valueInInch / 12;
+        }
         /// <summary>
         /// Overriding GetHashCode Method.
         /// </summary>

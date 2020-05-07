@@ -141,5 +141,49 @@ namespace QualityTest
             Length secondFeet = new Length(Length.Unit.INCH, 0.0);
             Assert.AreEqual(firstFeet, secondFeet);
         }
+
+        /// <Test 1.12>
+        /// Checking 1 feet is not equal to 1 inch
+        /// </Test1.12>
+        [Test]
+        public void CheckGivenOneFeetIsNotEqualToOneInch()
+        {
+            double oneFeet = lengthConversion.FeetToInch(1.0);
+            double oneInch = lengthConversion.InchToFeet(1.0);
+            Assert.AreNotEqual(oneFeet, oneInch);
+        }
+
+        /// <Test 1.13>
+        /// Checking 1 Inch is not equal to 1 Foot
+        /// </Test1.13>
+        [Test]
+        public void CheckGivenOneInchIsNotEqualToOneFeet()
+        {
+            double oneInch = lengthConversion.InchToFeet(1.0);
+            double oneFeet = lengthConversion.FeetToInch(1.0);
+            Assert.AreNotEqual(oneInch, oneFeet);
+        }
+
+        /// <Test 1.14>
+        /// Checking 1 Feet is equal to 12 Inch
+        /// </Test1.14>
+        [Test]
+        public void CheckGivenOneFeetIsEqualToTwelveInch()
+        {
+            double oneFeet = lengthConversion.FeetToInch(1.0);
+            double twelveInch = 12.0;
+            Assert.AreEqual(oneFeet,twelveInch);
+        }
+
+        /// <Test 1.15>
+        /// Checking 12 Inch is equal to 1 feet
+        /// </Test1.15>
+        [Test]
+        public void CheckGivenTwelveInchIsEqualToOneFeet()
+        {
+            double oneFeet = 1.0;
+            double twelveInch = lengthConversion.InchToFeet(12.0);
+            Assert.AreEqual(oneFeet, twelveInch);
+        }
     }
 }
