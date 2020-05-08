@@ -1,8 +1,7 @@
 ﻿///--------------------------------------------------------------------
 ///   Class:       Weight
-///   Description: Contains two Methods
+///   Description: Contains one Methods
 ///                 1) WeightConversion
-///                 2) AddTwoWeightInKilograms
 ///   Author:      Nitikesh Shinde                   Date: 08/05/2020
 ///--------------------------------------------------------------------
 
@@ -20,7 +19,10 @@ namespace QualityMeasurementProblem
         {
             KILOGRAM,
             GRAMS,
-            TONNE
+            TONNE,
+            TONNE_TO_KILOGRAM,
+            GRAM_TO_KILOGRAM,
+            KILOGRAM_TO_GRAM
         };
 
         // Default Constructor
@@ -40,52 +42,22 @@ namespace QualityMeasurementProblem
         /// <param name="conversion"></param>
         /// <param name="givenValue"></param>
         /// <returns></returns>
-        public double WeightConversion(string conversion, double givenValue)
+        public double WeightConversion(Unit unit, double givenValue)
         {
-            switch (conversion)
+            switch (unit)
             {
-                case "KilogramToGram":
+                case Unit.KILOGRAM_TO_GRAM:
                     double kilogramToGram = givenValue * 1000;
                     return kilogramToGram;
-                case "GramToKilogram":
+                case Unit.GRAM_TO_KILOGRAM:
                     double gramToKilogram = givenValue / 1000;
                     return gramToKilogram;
-                case "TonneToKilogram":
+                case Unit.TONNE_TO_KILOGRAM:
                     double tonneToKilogram = givenValue * 1000;
                     return tonneToKilogram;
                 default:
-                    Console.WriteLine("Invalid Conversion");
-                    return 0;
+                    return givenValue;
             }
-        }
-
-        /// <summary>
-        /// Adding two weights in grams
-        /// if its unit is not in gram then we are converting it in grams
-        /// and making addition of it.
-        /// </summary>
-        /// <param name="unitOne"></param>
-        /// <param name="valueOne"></param>
-        /// <param name="unitTwo"></param>
-        /// <param name="valueTwo"></param>
-        /// <returns></returns>
-        public double AddTwoWeightInGrams(Unit unitOne, double valueOne, Unit unitTwo, double valueTwo)
-        {
-            double firstValueInGrams = valueOne;
-            double secondValueInGrams = valueTwo;
-
-            //if unitOne is in Tonne ,Calling WeightConversion method
-            if (unitOne == Unit.TONNE)
-            {
-                firstValueInGrams = WeightConversion("TonneToKilogram", valueOne);
-            }
-            //when unitTwo is in grams, Calling WeightConversion  method
-            if (unitTwo == Unit.GRAMS)
-            {
-                secondValueInGrams = WeightConversion("GramToKilogram", valueTwo);
-            }
-            // Addition of weights in Kilograms
-            return firstValueInGrams + secondValueInGrams;
         }
     }
 }

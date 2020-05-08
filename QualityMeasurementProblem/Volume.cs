@@ -1,8 +1,7 @@
 ﻿///--------------------------------------------------------------------
 ///   Class:       Volume
-///   Description: Contains two Methods
+///   Description: Contains a Methods
 ///                 1) VolumeConversion
-///                 2) AddTwoVolumesInLitres
 ///   Author:      Nitikesh Shinde                   Date: 08/05/2020
 ///--------------------------------------------------------------------
 
@@ -18,9 +17,12 @@ namespace QualityMeasurementProblem
 
         public enum Unit
         {
-            GALLON,
             LITRE,
-            MILILITRE
+            MILILITRE,
+            GALLON,
+            MILILITRE_TO_LITRE,
+            LITRE_TO_MILILITRE,
+            GALLON_TO_LITRE
         };
 
         // Default Constructor
@@ -40,52 +42,22 @@ namespace QualityMeasurementProblem
         /// <param name="conversion"></param>
         /// <param name="givenValue"></param>
         /// <returns></returns>
-        public double VolumeConversion(string conversion, double givenValue)
+        public double VolumeConversion(Unit unit, double givenValue)
         {
-            switch (conversion)
+            switch (unit)
             {
-                case "GallonToLitre":
+                case Unit.GALLON_TO_LITRE:
                     double gallonToLitre = givenValue * 3.78;
                     return gallonToLitre;
-                case "LitreToMililitre":
+                case Unit.LITRE_TO_MILILITRE:
                     double litreToMililitre = givenValue * 1000;
                     return litreToMililitre;
-                case "MililitreToLitre":
+                case Unit.MILILITRE_TO_LITRE:
                     double mililitreToLitre = givenValue / 1000;
                     return mililitreToLitre;
                 default:
-                    Console.WriteLine("Invalid Conversion");
-                    return 0;
+                    return givenValue;
             }
-        }
-
-        /// <summary>
-        /// Adding two vloumes in litres
-        /// if its unit is not in litre then we are converting it in liters
-        /// and making addition of it.
-        /// </summary>
-        /// <param name="unitOne"></param>
-        /// <param name="valueOne"></param>
-        /// <param name="unitTwo"></param>
-        /// <param name="valueTwo"></param>
-        /// <returns></returns>
-        public double AddTwoVolumesInLitres(Unit unitOne, double valueOne, Unit unitTwo, double valueTwo)
-        {
-            double firstValueInLitre = valueOne;
-            double secondValueInLitre = valueTwo;
-           
-            // when unitOne is Gallon, Calling VolumeConversion method
-            if (unitOne == Unit.GALLON)
-            {
-                firstValueInLitre = VolumeConversion("GallonToLitre", valueOne);
-            }
-            // when unitTwo is in Milimeter, Calling VolumeConversion method
-            else if (unitTwo == Unit.MILILITRE)
-            {
-                secondValueInLitre = VolumeConversion("MililitreToLitre", valueTwo);
-            }
-            // Addition of Volumes in litres
-            return firstValueInLitre + secondValueInLitre;
         }
     }
 }

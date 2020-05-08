@@ -12,8 +12,8 @@ namespace QualityMeasurementProblem
     {
         public enum Unit
         {
-            FAHRENHIET,
-            CELSIUS,
+            FAHRENHIET_TO_CELSIUS,
+            CELSIUS_TO_FAHRENHITE
         };
 
         /// <summary>
@@ -23,13 +23,13 @@ namespace QualityMeasurementProblem
         /// <param name="conversion"></param>
         /// <param name="givenValue"></param>
         /// <returns></returns>
-        public double TemperatureConversion(string conversion,double givenValue)
+        public double TemperatureConversion(Unit unit,double givenValue)
         {
-            switch(conversion)
+            switch(unit)
             {
-                case "FahrenhiteToCelsius":
+                case Unit.FAHRENHIET_TO_CELSIUS:
                     return (givenValue - 32) * 5/9;
-                case "CelsiusToFahrenhiet":
+                case Unit.CELSIUS_TO_FAHRENHITE:
                     return (givenValue * 9 / 5) + 32;
                 default:
                     Console.WriteLine("Invalid Conversion type!");

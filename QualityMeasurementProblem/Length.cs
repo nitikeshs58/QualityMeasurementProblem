@@ -1,9 +1,8 @@
 ﻿///--------------------------------------------------------------------
 ///   Class:       Length
-///   Description: There are three methods in Length class 
+///   Description: There are two methods in Length class 
 ///                1) Equals
-///                2) AddTwoLenghtsInInch
-///                3) LengthConversion
+///                2) LengthConversion
 ///   Author:      Nitikesh Shinde                   Date: 08/05/2020
 ///--------------------------------------------------------------------
 
@@ -22,7 +21,15 @@ namespace QualityMeasurementProblem
         {
             FEET,
             INCH,
-            CENTIMETER
+            CENTIMETER,
+            FEET_TO_INCH,
+            INCH_TO_FEET,
+            FEET_TO_YARD,
+            YARD_TO_FEET,
+            INCH_TO_YARD,
+            YARD_TO_INCH,
+            INCH_TO_CENTIMETER,
+            CENTIMETER_TO_INCH
         };
 
         // Default Constructor
@@ -59,71 +66,39 @@ namespace QualityMeasurementProblem
         /// <param name="conversion"></param>
         /// <param name="givenValue"></param>
         /// <returns></returns>
-        public double LengthConversion(string conversion,double givenValue)
+        public double LengthConversion(Unit unit,double givenValue)
         {
-            switch (conversion)
+            switch (unit)
             {
-                case "FeetToInch":
+                case Unit.FEET_TO_INCH:
                     double feetToInch= givenValue * 12;
                     return feetToInch;
-                case "InchToFeet":
+                case Unit.INCH_TO_FEET:
                     double inchToFeet = givenValue / 12;
                     return inchToFeet;
-                case "FeetToYard":
+                case Unit.FEET_TO_YARD:
                     double feetToyard = givenValue / 3;
                     return feetToyard;
-                case "YardToFeet":
+                case Unit.YARD_TO_FEET:
                     double yardToFeet = givenValue * 3;
                     return yardToFeet;
-                case "InchToYard":
+                case Unit.INCH_TO_YARD:
                     double inchToYard = givenValue / 36;
                     return inchToYard;
-                case "YardToInch":
+                case Unit.YARD_TO_INCH:
                     double yardToInch = givenValue * 36;
                     return yardToInch;
-                case "InchToCentimeter":
+                case Unit.INCH_TO_CENTIMETER:
                     double inchToCentimeter = givenValue * 2.5;
                     return inchToCentimeter;
-                case "CentimeterToInch":
+                case Unit.CENTIMETER_TO_INCH:
                     double centimeterToInch = givenValue / 2.5;
                     return centimeterToInch;
                 default:
-                    Console.WriteLine("Invalid Conversion");
-                    return 0;
+                    return givenValue;
             }
         }
 
-        public double AddTwoLenghtsInInch(Unit unitOne,double valueOne,Unit unitTwo,double valueTwo)
-        {
-            double firstValueInInch = valueOne;
-            double secondValueInInch = valueTwo;
-            
-            // When Both units are in Inchs
-            if (unitOne == Unit.INCH && unitTwo == Unit.INCH)
-                return firstValueInInch + secondValueInInch;
-            // Unit is in Feet , Calling method for length conversion
-            if (unitOne == Unit.FEET) 
-            {
-                firstValueInInch = LengthConversion("FeetToInch", valueOne);
-            }
-            // Unit is in Centimeter , Calling method for length conversion
-            else if (unitOne==Unit.CENTIMETER)
-            {
-                firstValueInInch = LengthConversion("CentimeterToInch", valueOne);
-            }
-            // Unit is in Feet , Calling method for length conversion
-            if (unitTwo == Unit.FEET)
-            {
-                secondValueInInch = LengthConversion("FeetToInch", valueTwo);
-            }
-            // Unit is in centimeter , Calling method for length conversion
-            else if (unitTwo == Unit.CENTIMETER)
-            {
-                secondValueInInch = LengthConversion("CentimeterToInch", valueTwo);
-            }
-            // Addition of length is Inch
-            return firstValueInInch+ secondValueInInch;
-        }
         /// <summary>
         /// Overriding GetHashCode Method.
         /// </summary>
