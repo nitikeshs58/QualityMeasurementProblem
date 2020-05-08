@@ -7,6 +7,7 @@ namespace QualityTest
         //Object Creation
         readonly Length length = new Length();
         readonly Volume volume = new Volume();
+        readonly Weight weight = new Weight();
 
         [SetUp]
         public void Setup()
@@ -351,6 +352,17 @@ namespace QualityTest
             double oneLitreOneThousandMiliLitre = volume.AddTwoVolumesInLitres(Volume.Unit.LITRE, 1.0, Volume.Unit.MILILITRE, 1000);
             double addInLitre = 2;
             Assert.AreEqual(addInLitre, oneLitreOneThousandMiliLitre);
+        }
+
+        /// <Test 7.1>
+        /// Checking 1 Kilogram is equal to 1000 grams
+        /// </Test7.1>
+        [Test]
+        public void CheckGivenOneKilogramIsEqualToOneThousandGrams()
+        {
+            double oneKilogramsInGrams = weight.WeightConversion("KilogramToGram", 1.0);
+            double oneThousandGrams = 1000;
+            Assert.AreEqual(oneThousandGrams, oneKilogramsInGrams);
         }
     }
 }
