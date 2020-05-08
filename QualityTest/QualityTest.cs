@@ -315,7 +315,7 @@ namespace QualityTest
         [Test]
         public void CheckGivenOneGallonToLitre()
         {
-            double oneGallon = volume.volumeConversion("GallonToLitre",1.0);
+            double oneGallon = volume.VolumeConversion("GallonToLitre",1.0);
             double oneGallonToLitre = 3.78;
             Assert.AreEqual(oneGallonToLitre, oneGallon);
         }
@@ -326,9 +326,20 @@ namespace QualityTest
         [Test]
         public void CheckGivenOneLitreEqualToOneThousandMililitre()
         {
-            double oneLitre = volume.volumeConversion("LitreToMililitre", 1.0);
+            double oneLitre = volume.VolumeConversion("LitreToMililitre", 1.0);
             double oneThousandMiliLitre = 1000;
             Assert.AreEqual(oneThousandMiliLitre, oneLitre);
+        }
+
+        /// <Test 6.1>
+        /// Checking 1 gallon is equal to 3.78 litres
+        /// </Test6.1>
+        [Test]
+        public void CheckGivenOneGallonAndThreeLitreAddInLitre()
+        {
+            double oneGallonThreeLitre = volume.AddTwoVolumesInLitres(Volume.Unit.GALLON, 1.0,Volume.Unit.LITRE,3.78);
+            double oneGallonAddToLitre = 7.56;
+            Assert.AreEqual(oneGallonAddToLitre, oneGallonThreeLitre);
         }
     }
 }

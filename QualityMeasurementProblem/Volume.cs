@@ -13,7 +13,8 @@ namespace QualityMeasurementProblem
         public enum Unit
         {
             GALLON,
-            LITRE
+            LITRE,
+            MILILITRE
         };
 
         // Default Constructor
@@ -33,7 +34,7 @@ namespace QualityMeasurementProblem
         /// <param name="conversion"></param>
         /// <param name="givenValue"></param>
         /// <returns></returns>
-        public double volumeConversion(string conversion, double givenValue)
+        public double VolumeConversion(string conversion, double givenValue)
         {
             switch (conversion)
             {
@@ -43,10 +44,39 @@ namespace QualityMeasurementProblem
                 case "LitreToMililitre":
                     double litreToMililitre = givenValue * 1000;
                     return litreToMililitre;
+                case "MililitreToLitre":
+                    double mililitreToLitre = givenValue / 1000;
+                    return mililitreToLitre;
                 default:
                     Console.WriteLine("Invalid Conversion");
                     return 0;
             }
+        }
+
+        /// <summary>
+        /// Adding two vloumes in litres
+        /// if its unit is not in litre then we are converting it in liters
+        /// and making addition of it.
+        /// </summary>
+        /// <param name="unitOne"></param>
+        /// <param name="valueOne"></param>
+        /// <param name="unitTwo"></param>
+        /// <param name="valueTwo"></param>
+        /// <returns></returns>
+        public double AddTwoVolumesInLitres(Unit unitOne, double valueOne, Unit unitTwo, double valueTwo)
+        {
+            double firstValueInLitre = valueOne;
+            double secondValueInLitre = valueTwo;
+           
+            if (unitOne == Unit.GALLON)
+            {
+                firstValueInLitre = VolumeConversion("GallonToLitre", valueOne);
+            }
+            else if (unitTwo == Unit.MILILITRE)
+            {
+                secondValueInLitre = VolumeConversion("MililitreToLitre", valueTwo);
+            }
+            return firstValueInLitre + secondValueInLitre;
         }
     }
 }
