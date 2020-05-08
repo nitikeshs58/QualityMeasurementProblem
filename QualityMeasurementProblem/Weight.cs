@@ -1,6 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿///--------------------------------------------------------------------
+///   Class:       Weight
+///   Description: Contains two Methods
+///                 1) WeightConversion
+///                 2) AddTwoWeightInKilograms
+///   Author:      Nitikesh Shinde                   Date: 08/05/2020
+///--------------------------------------------------------------------
+
+using System;
 
 namespace QualityMeasurementProblem
 {
@@ -68,14 +74,17 @@ namespace QualityMeasurementProblem
             double firstValueInGrams = valueOne;
             double secondValueInGrams = valueTwo;
 
+            //if unitOne is in Tonne ,Calling WeightConversion method
             if (unitOne == Unit.TONNE)
             {
                 firstValueInGrams = WeightConversion("TonneToKilogram", valueOne);
             }
+            //when unitTwo is in grams, Calling WeightConversion  method
             if (unitTwo == Unit.GRAMS)
             {
                 secondValueInGrams = WeightConversion("GramToKilogram", valueTwo);
             }
+            // Addition of weights in Kilograms
             return firstValueInGrams + secondValueInGrams;
         }
     }

@@ -1,6 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿///--------------------------------------------------------------------
+///   Class:       Volume
+///   Description: Contains two Methods
+///                 1) VolumeConversion
+///                 2) AddTwoVolumesInLitres
+///   Author:      Nitikesh Shinde                   Date: 08/05/2020
+///--------------------------------------------------------------------
+
+using System;
 
 namespace QualityMeasurementProblem
 {
@@ -68,14 +74,17 @@ namespace QualityMeasurementProblem
             double firstValueInLitre = valueOne;
             double secondValueInLitre = valueTwo;
            
+            // when unitOne is Gallon, Calling VolumeConversion method
             if (unitOne == Unit.GALLON)
             {
                 firstValueInLitre = VolumeConversion("GallonToLitre", valueOne);
             }
+            // when unitTwo is in Milimeter, Calling VolumeConversion method
             else if (unitTwo == Unit.MILILITRE)
             {
                 secondValueInLitre = VolumeConversion("MililitreToLitre", valueTwo);
             }
+            // Addition of Volumes in litres
             return firstValueInLitre + secondValueInLitre;
         }
     }

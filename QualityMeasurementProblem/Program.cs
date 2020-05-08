@@ -1,8 +1,13 @@
-﻿using System;
+﻿///--------------------------------------------------------------------
+///   Class:       Program
+///   Description: Contains Main Method
+///   Author:      Nitikesh Shinde                   Date: 08/05/2020
+///--------------------------------------------------------------------
+using System;
 
 namespace QualityMeasurementProblem
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {

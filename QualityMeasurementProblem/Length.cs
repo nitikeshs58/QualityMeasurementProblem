@@ -1,6 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿///--------------------------------------------------------------------
+///   Class:       Length
+///   Description: There are three methods in Length class 
+///                1) Equals
+///                2) AddTwoLenghtsInInch
+///                3) LengthConversion
+///   Author:      Nitikesh Shinde                   Date: 08/05/2020
+///--------------------------------------------------------------------
+
+using System;
 
 namespace QualityMeasurementProblem
 {
@@ -10,6 +17,7 @@ namespace QualityMeasurementProblem
         Unit unit;
         private double value;
 
+        // enum method for Unit
         public enum Unit
         {
             FEET,
@@ -35,16 +43,17 @@ namespace QualityMeasurementProblem
         /// <returns></returns>
         public override bool Equals(object obj)
         {
-            //If Object is Null It Will Return False.
+            // If Object is Null It Will Return False.
             if (obj == null)
                 return false;
+            // If obj is equal to this , It will return True
             if (obj == this)
                 return true;
             return (this.unit == ((Length)obj).unit) && (this.value == ((Length)obj).value);
         }
 
         /// <summary>
-        /// By using Switch case we are checking type of converson
+        /// By using Switch case we are checking type of conversion
         /// and doing calculation
         /// </summary>
         /// <param name="conversion"></param>
@@ -88,26 +97,31 @@ namespace QualityMeasurementProblem
         {
             double firstValueInInch = valueOne;
             double secondValueInInch = valueTwo;
-            //
+            
+            // When Both units are in Inchs
             if (unitOne == Unit.INCH && unitTwo == Unit.INCH)
                 return firstValueInInch + secondValueInInch;
+            // Unit is in Feet , Calling method for length conversion
             if (unitOne == Unit.FEET) 
             {
                 firstValueInInch = LengthConversion("FeetToInch", valueOne);
             }
-            else if(unitOne==Unit.CENTIMETER)
+            // Unit is in Centimeter , Calling method for length conversion
+            else if (unitOne==Unit.CENTIMETER)
             {
                 firstValueInInch = LengthConversion("CentimeterToInch", valueOne);
             }
-
+            // Unit is in Feet , Calling method for length conversion
             if (unitTwo == Unit.FEET)
             {
                 secondValueInInch = LengthConversion("FeetToInch", valueTwo);
             }
+            // Unit is in centimeter , Calling method for length conversion
             else if (unitTwo == Unit.CENTIMETER)
             {
                 secondValueInInch = LengthConversion("CentimeterToInch", valueTwo);
             }
+            // Addition of length is Inch
             return firstValueInInch+ secondValueInInch;
         }
         /// <summary>

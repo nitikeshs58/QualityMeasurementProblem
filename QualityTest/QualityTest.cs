@@ -1,5 +1,13 @@
+///--------------------------------------------------------------------
+///   Class:       Tests
+///   Description: Contains around 34 tests of Quality Measurement Problems
+///                 Checking Equality of units and Unit Value Conversions
+///   Author:      Nitikesh Shinde                   Date: 08/05/2020
+///--------------------------------------------------------------------
+
 using NUnit.Framework;
 using QualityMeasurementProblem;
+
 namespace QualityTest
 {
     public class Tests
@@ -8,6 +16,7 @@ namespace QualityTest
         readonly Length length = new Length();
         readonly Volume volume = new Volume();
         readonly Weight weight = new Weight();
+        readonly Temperature temperature = new Temperature();
 
         [SetUp]
         public void Setup()
@@ -385,6 +394,19 @@ namespace QualityTest
             double addOneTonneOneThousandGrams = weight.AddTwoWeightInGrams(Weight.Unit.TONNE, 1.0,Weight.Unit.GRAMS,1000);
             double additionInKilograms = 1001;
             Assert.AreEqual(additionInKilograms, addOneTonneOneThousandGrams);
+        }
+
+
+        /// <Test 7.4>
+        /// Checking conversion of Temperature
+        /// Fahrenhiet to Celsius
+        /// </Test7.4>
+        [Test]
+        public void CheckTemperatureConversionFahrenhiteToCelsius()
+        {
+            double fahrenhiteToCelsius = temperature.TemperatureConversion("FahrenhiteToCelsius",212);
+            double hundredCelsius = 100;
+            Assert.AreEqual(hundredCelsius, fahrenhiteToCelsius);
         }
     }
 }
