@@ -65,18 +65,18 @@ namespace QualityMeasurementProblem
         /// <returns></returns>
         public double AddTwoWeightInGrams(Unit unitOne, double valueOne, Unit unitTwo, double valueTwo)
         {
-            double firstValueInLitre = valueOne;
-            double secondValueInLitre = valueTwo;
+            double firstValueInGrams = valueOne;
+            double secondValueInGrams = valueTwo;
 
             if (unitOne == Unit.TONNE)
             {
-                firstValueInLitre = WeightConversion("TonneToKilogram", valueOne);
+                firstValueInGrams = WeightConversion("TonneToKilogram", valueOne);
             }
-            else if (unitTwo == Unit.GRAMS)
+            if (unitTwo == Unit.GRAMS)
             {
-                secondValueInLitre = WeightConversion("GramToKilogram", valueTwo);
+                secondValueInGrams = WeightConversion("GramToKilogram", valueTwo);
             }
-            return firstValueInLitre + secondValueInLitre;
+            return firstValueInGrams + secondValueInGrams;
         }
     }
 }
